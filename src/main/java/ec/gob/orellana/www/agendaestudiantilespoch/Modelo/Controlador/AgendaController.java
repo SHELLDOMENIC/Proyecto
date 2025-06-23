@@ -12,12 +12,14 @@ import java.util.ArrayList;
  * @author and_j
  */
 public class AgendaController {
-    public List<Materia> materias = new ArrayList<>();
-    public List<Tarea> tareas = new ArrayList<>();
-    public List<Examen> examenes = new ArrayList<>();
+    public  String VectorMateria [] = new String[100]; 
+    public  String VectorTarea [] = new String [100];
+    public String VectorExamen [] = new String [100];
+    public String VectorMeta []= new String [100];
+   
 
-    public void agregarMateria(Materia materia) {
-        materias.add(materia);
+    public void agregarMateria(String VectorMateria) {
+        VectorMateria.add(0);
     }
 
     public void agregarTarea(Tarea tarea) {
