@@ -1,5 +1,7 @@
-
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
+
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,8 +12,11 @@ public class NewJframe extends javax.swing.JFrame {
     /**
      * Creates new form NewJframe
      */
-    public NewJframe() {
+     private AgendaController controlador;
+    public NewJframe(AgendaController controlador) {
+        this.controlador =controlador;
         initComponents();
+        
     }
 
     /**
@@ -31,14 +36,14 @@ public class NewJframe extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtIngresaDescripcion = new javax.swing.JTextField();
         txtIngresaFecha = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        btnCompetadoSiTareas = new javax.swing.JRadioButton();
+        btnCompetadoNoTareas = new javax.swing.JRadioButton();
         btnGuardarTarea = new javax.swing.JButton();
         btnSalirTarea = new javax.swing.JButton();
         btnLimpiarTarea = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtHoraTareas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 0, 204));
@@ -51,6 +56,7 @@ public class NewJframe extends javax.swing.JFrame {
 
         jLabel2.setText("Descripción:");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel3.setText("Fecha entrega");
 
         jLabel4.setText("Completado");
@@ -69,11 +75,11 @@ public class NewJframe extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Si");
+        buttonGroup1.add(btnCompetadoSiTareas);
+        btnCompetadoSiTareas.setText("Si");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("No");
+        buttonGroup1.add(btnCompetadoNoTareas);
+        btnCompetadoNoTareas.setText("No");
 
         btnGuardarTarea.setText("Guardar");
         btnGuardarTarea.addActionListener(new java.awt.event.ActionListener() {
@@ -90,15 +96,20 @@ public class NewJframe extends javax.swing.JFrame {
         });
 
         btnLimpiarTarea.setText("Limpiar");
+        btnLimpiarTarea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarTareaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Hora:");
 
         jLabel6.setText("Dia:");
 
-        jTextField1.setText("ejem, media noche");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtHoraTareas.setText("ejem, media noche");
+        txtHoraTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtHoraTareasActionPerformed(evt);
             }
         });
 
@@ -124,13 +135,13 @@ public class NewJframe extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtIngresaFecha)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(txtHoraTareas, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                                     .addComponent(txtIngresaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(btnCompetadoSiTareas)
                                 .addGap(34, 34, 34)
-                                .addComponent(jRadioButton2)
+                                .addComponent(btnCompetadoNoTareas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnGuardarTarea)
@@ -140,7 +151,7 @@ public class NewJframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
+                .addGap(147, 147, 147))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +176,7 @@ public class NewJframe extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                 .addComponent(btnLimpiarTarea)
                                 .addGap(5, 5, 5)
                                 .addComponent(btnGuardarTarea)
@@ -176,11 +187,11 @@ public class NewJframe extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jRadioButton2))
+                                    .addComponent(btnCompetadoSiTareas)
+                                    .addComponent(btnCompetadoNoTareas))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtHoraTareas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
 
@@ -196,24 +207,56 @@ public class NewJframe extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarTareaActionPerformed
 
     private void btnSalirTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirTareaActionPerformed
-        // TODO add your handling code here:
+        new PrincipalView(controlador).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSalirTareaActionPerformed
 
     private void txtIngresaFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresaFechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIngresaFechaActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtHoraTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraTareasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtHoraTareasActionPerformed
+
+    private void btnLimpiarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTareaActionPerformed
+       //estos condicionales sirven para el boton limpiar, si lo limpian y no estan llenos dice que lleno los campos
+        if (txtIngresaDescripcion.getText().length() > 0) {
+
+            txtIngresaDescripcion.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (txtHoraTareas.getText().length() > 0) {
+            txtHoraTareas.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (txtIngresaFecha.getText().length() > 0) {
+            txtIngresaFecha.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (btnCompetadoNoTareas.getText().length() > 0) {
+            btnCompetadoNoTareas.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (btnCompetadoSiTareas.getText().length() > 0) {
+            btnCompetadoSiTareas.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+    }//GEN-LAST:event_btnLimpiarTareaActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IngresaTarea;
+    private javax.swing.JRadioButton btnCompetadoNoTareas;
+    private javax.swing.JRadioButton btnCompetadoSiTareas;
     private javax.swing.JButton btnGuardarTarea;
     private javax.swing.JButton btnLimpiarTarea;
     private javax.swing.JButton btnSalirTarea;
@@ -224,14 +267,9 @@ public class NewJframe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtHoraTareas;
     private javax.swing.JTextField txtIngresaDescripcion;
     private javax.swing.JTextField txtIngresaFecha;
     // End of variables declaration//GEN-END:variables
 
-    private void limpiar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

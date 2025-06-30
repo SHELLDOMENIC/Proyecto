@@ -1,5 +1,7 @@
-
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
+
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,7 +12,10 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrameMaterias
      */
-    public NewJFrameMaterias() {
+    private AgendaController controlador;
+
+    public NewJFrameMaterias(AgendaController controlador) {
+        this.controlador = controlador;
         initComponents();
     }
 
@@ -31,7 +36,7 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtNombreDelDocente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        TxThora = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtDiaHorario = new javax.swing.JTextField();
@@ -39,7 +44,6 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         btnGuardarMateria = new javax.swing.JButton();
         btnSalirMateria = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,15 +69,16 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
 
         jLabel5.setText("Horas:");
 
-        jTextField1.setText("ejem,tres a cinco");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        TxThora.setText("ejem,tres a cinco");
+        TxThora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TxThoraActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Dia:");
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel7.setText("Horario");
 
         txtDiaHorario.setText("ejem,Lunes");
@@ -93,10 +98,12 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         btnGuardarMateria.setText("Guardar");
 
         btnSalirMateria.setText("Salir");
+        btnSalirMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirMateriaActionPerformed(evt);
+            }
+        });
 
-        jMenu1.setText("Principal");
-        buttonGroup1.add(jMenu1);
-        jMenuBar1.add(jMenu1);
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -127,7 +134,7 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField1)
+                                            .addComponent(TxThora)
                                             .addComponent(txtDiaHorario)
                                             .addComponent(txtNombreDelDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(txtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,7 +171,7 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxThora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(btnLimpiarmateria)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -181,24 +188,49 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreDelDocenteActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TxThoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxThoraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TxThoraActionPerformed
 
     private void txtDiaHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaHorarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDiaHorarioActionPerformed
 
     private void btnLimpiarmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarmateriaActionPerformed
-        // TODO add your handling code here:
+        if (TxThora.getText().length() > 0) {
+            TxThora.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (txtDiaHorario.getText().length() > 0) {
+            txtDiaHorario.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (txtNombreDelDocente.getText().length() > 0) {
+            txtNombreDelDocente.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (txtNombreMateria.getText().length() > 0) {
+            txtNombreMateria.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
     }//GEN-LAST:event_btnLimpiarmateriaActionPerformed
+
+    private void btnSalirMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMateriaActionPerformed
+
+        new PrincipalView(controlador).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirMateriaActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TxThora;
     private javax.swing.JButton btnGuardarMateria;
     private javax.swing.JButton btnLimpiarmateria;
     private javax.swing.JButton btnSalirMateria;
@@ -210,12 +242,11 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtDiaHorario;
     private javax.swing.JTextField txtNombreDelDocente;
     private javax.swing.JTextField txtNombreMateria;
     // End of variables declaration//GEN-END:variables
+
 }
