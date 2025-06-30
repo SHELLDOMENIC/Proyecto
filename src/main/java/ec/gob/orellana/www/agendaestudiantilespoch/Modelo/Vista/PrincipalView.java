@@ -33,8 +33,6 @@ public class PrincipalView extends javax.swing.JFrame {
         btnMetas = new javax.swing.JButton();
         btnResgistrado = new javax.swing.JButton();
         btnExamen = new javax.swing.JButton();
-        txtxSalida = new javax.swing.JTextField();
-        btnlimpiar = new javax.swing.JButton();
 
         jFrame1.setBackground(new java.awt.Color(204, 0, 204));
 
@@ -76,6 +74,11 @@ public class PrincipalView extends javax.swing.JFrame {
         });
 
         btnResgistrado.setText("Registrado");
+        btnResgistrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResgistradoActionPerformed(evt);
+            }
+        });
 
         btnExamen.setText("Examen");
         btnExamen.addActionListener(new java.awt.event.ActionListener() {
@@ -84,46 +87,28 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
-        txtxSalida.setText("Lo resgistrado saldra aqui.");
-        txtxSalida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtxSalidaActionPerformed(evt);
-            }
-        });
-
-        btnlimpiar.setText("Limpiar");
-        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlimpiarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnTareas)
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnMaterias)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnMetas)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnExamen))
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnResgistrado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtxSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnlimpiar)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(btnTareas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(btnMaterias)
+                .addGap(28, 28, 28)
+                .addComponent(btnExamen)
+                .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(btnMetas)
+                .addGap(34, 34, 34)
+                .addComponent(btnResgistrado)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,23 +117,14 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTareas)
                     .addComponent(btnMaterias)
-                    .addComponent(btnMetas)
+                    .addComponent(btnTareas)
                     .addComponent(btnExamen))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnResgistrado)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtxSalida))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                        .addComponent(btnlimpiar)
-                        .addGap(52, 52, 52))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMetas)
+                    .addComponent(btnResgistrado))
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -172,22 +148,15 @@ public class PrincipalView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnMetasActionPerformed
 
-    private void txtxSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtxSalidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtxSalidaActionPerformed
-
-    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-        if (txtxSalida.getText().length() > 0) {
-        txtxSalida.setText("");
-         } else {
-            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
-        }
-        
-    }//GEN-LAST:event_btnlimpiarActionPerformed
-
     private void btnExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamenActionPerformed
-        // TODO add your handling code here:
+        new NewJFrameExamen(controlador).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnExamenActionPerformed
+
+    private void btnResgistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResgistradoActionPerformed
+        new NewJFramefinal(controlador).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnResgistradoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,10 +168,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JButton btnMetas;
     private javax.swing.JButton btnResgistrado;
     private javax.swing.JButton btnTareas;
-    private javax.swing.JButton btnlimpiar;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtxSalida;
     // End of variables declaration//GEN-END:variables
 }
