@@ -1,6 +1,7 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
 
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Examen;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,7 +163,36 @@ public class NewJFrameExamen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        String nombreMateria = txtMateriaExamen.getText();
+        String Tema = txtTemaExamen.getText();
+        String dia = txtDiaExamen.getText();
+        String hora=txtHoraExamen.getText();
+        if (nombreMateria.isEmpty() || Tema.isEmpty() || dia.isEmpty()|| hora.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor complete todos los campos",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //  Crear la nueva meta
+        Examen nuevoExamen = new Examen(
+                nombreMateria,
+                Tema , 
+                dia,
+                hora
+                
+        );
+
+        // Guardar en el controlador
+        controlador.agregarExamen(nuevoExamen);
+
+        //  Mostrar confirmación
+        JOptionPane.showMessageDialog(this,
+                "Examen guardada exitosamente!",
+                "Mucha suerte!",
+                JOptionPane.INFORMATION_MESSAGE);
+                                  
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

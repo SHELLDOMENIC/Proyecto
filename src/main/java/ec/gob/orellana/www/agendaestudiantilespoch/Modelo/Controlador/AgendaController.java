@@ -41,20 +41,19 @@ public class AgendaController {
     public int contadorMetas = 0;
 
     // Métodos para agregar datos
+     public void agregarTarea(Tarea t) {
+        if (contadorTareas < 100) {
+            vectorTareas[contadorTareas] = t.toString();
+            contadorTareas++;
+        }
+    }
 
     public void agregarMateria(Materia m) {
         if (contadorMaterias < 100) {
             vectorMaterias[contadorMaterias] = m.toString();
             contadorMaterias++;
         }
-    }
-
-    public void agregarTarea(Tarea t) {
-        if (contadorTareas < 100) {
-            vectorTareas[contadorTareas] = t.toString();
-            contadorTareas++;
-        }
-    }
+    } 
 
     public void agregarExamen(Examen e) {
         if (contadorExamenes < 100) {

@@ -10,7 +10,7 @@ public class Meta {
     private String fecha;
     private boolean completado;
 
-    public Meta(String descripcion, String fecha) {
+    public Meta(String descripcion, String fecha,boolean completado) {
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.completado = false;

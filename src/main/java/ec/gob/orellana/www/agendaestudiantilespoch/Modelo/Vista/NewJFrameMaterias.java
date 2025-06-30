@@ -1,6 +1,8 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
 
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Materia;
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Meta;
 import javax.swing.JOptionPane;
 
 /**
@@ -96,6 +98,11 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         });
 
         btnGuardarMateria.setText("Guardar");
+        btnGuardarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarMateriaActionPerformed(evt);
+            }
+        });
 
         btnSalirMateria.setText("Salir");
         btnSalirMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +231,40 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         new PrincipalView(controlador).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirMateriaActionPerformed
+
+    private void btnGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMateriaActionPerformed
+        String nombreMateria = txtNombreMateria.getText();
+        String docente = txtNombreDelDocente.getText();
+        String dia = txtDiaHorario.getText();
+        String hora=TxThora.getText();
+        
+         if (nombreMateria.isEmpty() || docente.isEmpty() || dia.isEmpty()|| hora.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor complete todos los campos",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //  Crear la nueva meta
+        Materia nuevaMateria = new Materia(
+                nombreMateria,
+                docente , 
+                dia,
+                hora
+                
+        );
+
+        // Guardar en el controlador
+        controlador.agregarMateria(nuevaMateria);
+
+        //  Mostrar confirmación
+        JOptionPane.showMessageDialog(this,
+                "Materia guardada exitosamente!",
+                "Éxito",
+                JOptionPane.INFORMATION_MESSAGE);
+                                  
+    }//GEN-LAST:event_btnGuardarMateriaActionPerformed
 
     /**
      * @param args the command line arguments

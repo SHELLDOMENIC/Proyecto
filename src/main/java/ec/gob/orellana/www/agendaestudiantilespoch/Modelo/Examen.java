@@ -10,11 +10,12 @@ public class Examen {
         private String materia;
         private String fecha;
         private String tema;
-        
-          public Examen(String materia, String fecha, String tema) {
+        private String hora;
+          public Examen(String materia, String fecha, String tema,String hora) {
             this.materia = materia;
             this.fecha = fecha;
             this.tema = tema;
+            this.hora= hora;
         }
 
     public Examen() {

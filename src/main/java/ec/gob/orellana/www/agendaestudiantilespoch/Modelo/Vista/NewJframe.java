@@ -1,6 +1,7 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
 
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Tarea;
 import javax.swing.JOptionPane;
 
 /**
@@ -203,7 +204,39 @@ public class NewJframe extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIngresaDescripcionActionPerformed
 
     private void btnGuardarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTareaActionPerformed
-        // TODO add your handling code here:
+      //Obtener los datos de los campos de texto
+    String descripcion = txtIngresaDescripcion.getText();
+    String fecha = txtIngresaFecha.getText();
+    String hora = txtHoraTareas.getText();
+   
+    //boolean completado = btnCompetadoNoTareas.getText();
+   // boolean completado= btnCompetadoSiTareas.getText();
+    
+    //Validar que los campos no estén vacíos
+    if(descripcion.isEmpty() || fecha.isEmpty() || hora.isEmpty()) {
+        JOptionPane.showMessageDialog(this, 
+            "Por favor complete todos los campos", 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    // 3. Crear la nueva tarea
+    Tarea nuevaTarea = new Tarea(
+        descripcion,
+        fecha + " " + hora,  // Combinar fecha y hora
+        false                // Por defecto no completada
+    );
+    
+    // Guardar en el controlador
+    controlador.agregarTarea(nuevaTarea);
+    
+    //  Mostrar confirmación
+    JOptionPane.showMessageDialog(this, 
+        "Tarea guardada exitosamente!", 
+        "Éxito", 
+        JOptionPane.INFORMATION_MESSAGE);
+    
     }//GEN-LAST:event_btnGuardarTareaActionPerformed
 
     private void btnSalirTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirTareaActionPerformed

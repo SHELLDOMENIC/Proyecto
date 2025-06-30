@@ -1,4 +1,3 @@
-
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo;
 
 /**
@@ -6,14 +5,20 @@ package ec.gob.orellana.www.agendaestudiantilespoch.Modelo;
  * @author and_j
  */
 public class Tarea {
-      private String descripcion;
-    private String fecha;
+
+    private String descripcion;
+    private String Dia;
+    //private String Hora;
     private boolean completado = false;
 
-    public Tarea(String descripcion, String fecha) {
+    public Tarea(String descripcion, String Dia,boolean completado) {
         this.descripcion = descripcion;
-        this.fecha = fecha;
+        this.Dia = Dia;
+        //this.Hora = Hora;
+        this.completado = false;
     }
+    
+    
 
     public Tarea() {
     }
@@ -26,13 +31,21 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getDia() {
+        return Dia;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setDia(String Dia) {
+        this.Dia = Dia;
     }
+
+   /* public String getHora() {
+        return Hora;
+    }
+
+    public void setHora(String Hora) {
+        this.Hora = Hora;
+    }*/
 
     public boolean isCompletado() {
         return completado;
@@ -41,20 +54,9 @@ public class Tarea {
     public void setCompletado(boolean completado) {
         this.completado = completado;
     }
-    
-
-    public void marcarCompletado() {
-        completado = true;
-    }
-    public void editar(String descripcion, String fechaEntrega) {
-        this.descripcion = descripcion;
-        this.fecha = fechaEntrega;
-    }
 
     @Override
     public String toString() {
-        return descripcion + " | Fecha: " + fecha + " | Estado: " + (completado ? "Completada" : "Pendiente");
+        return descripcion + " | Fecha: " + Dia  + " | Estado: " + (completado ? "Completada" : "Pendiente");
     }
 }
-    
-

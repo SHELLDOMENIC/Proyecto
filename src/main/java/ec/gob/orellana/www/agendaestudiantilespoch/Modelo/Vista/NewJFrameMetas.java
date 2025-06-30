@@ -1,6 +1,9 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
 
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Meta;
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Tarea;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -89,6 +92,11 @@ public class NewJFrameMetas extends javax.swing.JFrame {
         });
 
         btnGuardarMetas.setText("Guardar");
+        btnGuardarMetas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarMetasActionPerformed(evt);
+            }
+        });
 
         btnSalirMetas.setText("Salir");
         btnSalirMetas.addActionListener(new java.awt.event.ActionListener() {
@@ -188,6 +196,37 @@ public class NewJFrameMetas extends javax.swing.JFrame {
         radiobtnNoMeta.setText("");
         radiobtnSiMeta.setText("");
     }//GEN-LAST:event_btnLimpiarMetasActionPerformed
+
+    private void btnGuardarMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMetasActionPerformed
+        String descripcion = txtDescripcionMeta.getText();
+        String fecha = txtFechaMeta.getText();
+        // boolean pendiente = radiobtnNoMeta.getText();
+        // boolean completado= radiobtnSiMeta.getText();
+
+        if (descripcion.isEmpty() || fecha.isEmpty() /*|| boolean.isEmpty()*/) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor complete todos los campos",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //  Crear la nueva meta
+        Meta nuevaMeta = new Meta(
+                descripcion,
+                fecha + " ", // Combinar fecha y hora
+                false // Por defecto no completada
+        );
+
+        // Guardar en el controlador
+        controlador.agregarMeta(nuevaMeta);
+
+        //  Mostrar confirmación
+        JOptionPane.showMessageDialog(this,
+                "Meta guardada exitosamente!",
+                "Éxito",
+                JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnGuardarMetasActionPerformed
 
     /**
      * @param args the command line arguments

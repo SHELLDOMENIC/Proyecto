@@ -1,4 +1,3 @@
-
 package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
 
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
@@ -13,6 +12,7 @@ public class NewJFramefinal extends javax.swing.JFrame {
      * Creates new form NewJFramefinal
      */
     private AgendaController controlador;
+
     public NewJFramefinal(AgendaController controlador) {
         initComponents();
         this.controlador = controlador;
@@ -121,7 +121,7 @@ public class NewJFramefinal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-       txtResultado.setText("");
+        txtResultado.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -131,14 +131,13 @@ public class NewJFramefinal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnMostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostarActionPerformed
-         String resumen = controlador.getResumen();
-         txtResultado.setText(resumen);
+        String resumen = controlador.getResumen();
+        txtResultado.setText(resumen);
     }//GEN-LAST:event_btnMostarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLimpiar;
