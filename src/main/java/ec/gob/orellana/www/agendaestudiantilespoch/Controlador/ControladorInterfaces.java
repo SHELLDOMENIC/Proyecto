@@ -20,9 +20,7 @@ import javax.swing.JTextArea;
  */
 public class ControladorInterfaces {
      private Cola cola;
-     public ControladorInterfaces(Cola cola) {
-        this.cola = cola;
-    }
+     
     public void procesoNavegar(String opcion) {
         
         if ("meta".equals(opcion)) {
