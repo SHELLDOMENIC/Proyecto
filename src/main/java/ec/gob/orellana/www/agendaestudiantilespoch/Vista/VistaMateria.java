@@ -1,4 +1,5 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
@@ -16,10 +17,10 @@ public class VistaMateria extends javax.swing.JFrame {
 
     public VistaMateria() {
         initComponents();
-        this.controladorAgenda= new ControladorAgenda(this);
+        this.controladorAgenda = new ControladorAgenda(this);
         //centrar la ventana
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -57,13 +58,10 @@ public class VistaMateria extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Showcard Gothic", 0, 18)); // NOI18N
         jLabel2.setText("Registro de Materias");
 
-        txtNombreMateria.setText("ejem,Calculo1");
-
         jLabel3.setText("Nombre de la Materia:");
 
         jLabel4.setText("Nombre del Docente:");
 
-        txtNombreDelDocente.setText("ejem,Ing Mishell");
         txtNombreDelDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreDelDocenteActionPerformed(evt);
@@ -84,7 +82,6 @@ public class VistaMateria extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel7.setText("Horario");
 
-        txtDiaHorario.setText("ejem,Lunes 3 a 5");
         txtDiaHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDiaHorarioActionPerformed(evt);
@@ -227,14 +224,14 @@ public class VistaMateria extends javax.swing.JFrame {
 
     private void btnSalirMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMateriaActionPerformed
 
-       // new PrincipalView(controlador).setVisible(true);
-        //this.dispose();
+        // new PrincipalView(controlador).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSalirMateriaActionPerformed
 
     private void btnGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMateriaActionPerformed
 
-       controladorAgenda.porcesoControlador("materia");
-
+        controladorAgenda.porcesoControlador("materia");
+        JOptionPane.showMessageDialog(null, "Guardado con Exito!");
     }//GEN-LAST:event_btnGuardarMateriaActionPerformed
     public String getMateria() {
         return txtNombreMateria.getText();

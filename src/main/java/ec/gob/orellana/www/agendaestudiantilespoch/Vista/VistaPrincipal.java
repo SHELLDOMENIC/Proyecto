@@ -164,7 +164,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     private void btnResgistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResgistradoActionPerformed
         //new NewJFramefinal(controlador).setVisible(true);
-        // this.dispose();
+        //this.dispose();
         controladorInterfaces.procesoNavegar("resultado");
     }//GEN-LAST:event_btnResgistradoActionPerformed
 

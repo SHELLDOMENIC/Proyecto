@@ -15,7 +15,7 @@ public class NodoMaterias {
     }
      @Override
     public String toString() {
-        return "NodoMateria{dato=" + dato + "}";
+        return "\n - NodoMateria:\n" + dato  ;
     }
 }
     

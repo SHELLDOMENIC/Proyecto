@@ -1,4 +1,5 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
@@ -13,14 +14,14 @@ public class VistaMeta extends javax.swing.JFrame {
      * Creates new form VistaMeta
      */
     private ControladorAgenda controladorAgenda;
-    
 
     public VistaMeta() {
         initComponents();
-        this.controladorAgenda= new ControladorAgenda(this);
+        this.controladorAgenda = new ControladorAgenda(this);
         //centrar la ventana
         this.setLocationRelativeTo(null);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,7 +57,6 @@ public class VistaMeta extends javax.swing.JFrame {
 
         jLabel4.setText("Completado");
 
-        txtDescripcionMeta.setText("ejem,Estudiar Ingles present perfect");
         txtDescripcionMeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescripcionMetaActionPerformed(evt);
@@ -184,27 +184,26 @@ public class VistaMeta extends javax.swing.JFrame {
     private void btnSalirMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMetasActionPerformed
 
         //new PrincipalView(controlador).setVisible(true);
-
-        //this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnSalirMetasActionPerformed
 
     private void btnLimpiarMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarMetasActionPerformed
-       if (txtDescripcionMeta.getText().length() > 0) { 
-        txtDescripcionMeta.setText("");
-         } else {
+        if (txtDescripcionMeta.getText().length() > 0) {
+            txtDescripcionMeta.setText("");
+        } else {
             JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
-       }
+        }
         if (txtFechaMeta.getText().length() > 0) {
             txtFechaMeta.setText("");
             JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
         if (radiobtnNoMeta.getText().length() > 0) {
             radiobtnNoMeta.setText("");
-          JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
         if (radiobtnNoMeta.getText().length() > 0) {
-          radiobtnSiMeta.setText("");
-          JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+            radiobtnSiMeta.setText("");
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
 //fumcion tipo boolean
         // public boolean esVerdadero(boolean true) 
@@ -213,9 +212,9 @@ public class VistaMeta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarMetasActionPerformed
 
     private void btnGuardarMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMetasActionPerformed
-      
-        controladorAgenda.porcesoControlador("meta");
 
+        controladorAgenda.porcesoControlador("meta");
+        JOptionPane.showMessageDialog(null, "Guardado con Exito!");
     }//GEN-LAST:event_btnGuardarMetasActionPerformed
     public String getDescripcionMetas() {
         return txtDescripcionMeta.getText();

@@ -57,6 +57,6 @@ public class Tarea {
 
     @Override
     public String toString() {
-        return descripcion + " | Fecha: " + Dia  + " | Estado: " + (completado ? "Completada" : "Pendiente");
+        return  "| Descripcion\n "+ descripcion + "\n | Fecha:\n " + Dia  + " \n| Estado:\n " + (completado ? "Completada\n" : " Pendiente \n");
     }
 }

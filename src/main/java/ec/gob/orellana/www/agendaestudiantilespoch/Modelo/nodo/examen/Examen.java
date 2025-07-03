@@ -57,7 +57,7 @@ public class Examen {
 
         @Override
     public String toString() {
-        return "Materia: " + materia + " | Fecha: " + fecha + " | Tema: " + tema+" | Hora " +hora;
+        return  "| Materia: " + "\n "+ materia + "\n  | Fecha:\n  " + fecha + ","+hora+" \n | Tema:\n " + tema+"\n";
     }
 }
 

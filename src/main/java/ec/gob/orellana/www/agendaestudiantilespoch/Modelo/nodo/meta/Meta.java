@@ -47,7 +47,7 @@ public class Meta {
 
     @Override
     public String toString() {
-        return descripcion + " | Fecha: " + fecha + " | Estado: " + (completado ? "Completada" : "Pendiente");
+        return " | Descripcion "+descripcion + " | Fecha: \n" + fecha + "\n | Estado: \n " + (completado ? " Completada \n" : " Pendiente \n");
     }
 }
     

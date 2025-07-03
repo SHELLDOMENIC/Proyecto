@@ -1,4 +1,5 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import javax.swing.JOptionPane;
 
@@ -18,8 +19,7 @@ public class VistaExamen extends javax.swing.JFrame {
         //centrar la ventana
         this.setLocationRelativeTo(null);
         initComponents();
-        
-   
+
     }
 
     /**
@@ -65,18 +65,11 @@ public class VistaExamen extends javax.swing.JFrame {
 
         jLabel6.setText("Hora:");
 
-        txtMateriaExamen.setText("ejem,Algebra");
-
-        txtDiaExamen.setText("ejem,division de fracciones");
-
-        txtTemaExamen.setText("ejem.Jueves ");
         txtTemaExamen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTemaExamenActionPerformed(evt);
             }
         });
-
-        txtHoraExamen.setText("ejem,tres de la tarde");
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,9 +118,9 @@ public class VistaExamen extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtMateriaExamen)
-                                .addComponent(txtDiaExamen)
                                 .addComponent(txtHoraExamen, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
-                            .addComponent(txtTemaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTemaExamen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDiaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -149,13 +142,13 @@ public class VistaExamen extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtDiaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTemaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Fecha)
-                    .addComponent(txtTemaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -173,13 +166,13 @@ public class VistaExamen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       controladorAgenda.porcesoControlador("examen");
-
+        controladorAgenda.porcesoControlador("examen");
+        JOptionPane.showMessageDialog(null, "Guardado con Exito!");
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         //new PrincipalView(controlador).setVisible(true);
-        //this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -210,7 +203,7 @@ public class VistaExamen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTemaExamenActionPerformed
 
-   public String getMateria() {
+    public String getMateria() {
         return txtMateriaExamen.getText();
     }
 
@@ -224,7 +217,7 @@ public class VistaExamen extends javax.swing.JFrame {
 
     public String getHora() {
         return txtHoraExamen.getText();
-    } 
+    }
     /**
      * @param args the command line arguments
      */

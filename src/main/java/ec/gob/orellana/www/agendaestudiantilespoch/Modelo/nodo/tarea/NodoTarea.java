@@ -15,6 +15,6 @@ public class NodoTarea {
 
     @Override
     public String toString() {
-        return "NodoTarea{dato=" + dato + "}";
+        return "\n - NodoTarea: \n" + dato ;
     }
 }

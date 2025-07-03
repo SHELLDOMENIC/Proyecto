@@ -137,9 +137,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombreMateria">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ejem,Calculo1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -152,9 +149,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombreDelDocente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ejem,Ing Mishell"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreDelDocenteActionPerformed"/>
       </Events>
@@ -186,9 +180,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDiaHorario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ejem,Lunes 3 a 5"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDiaHorarioActionPerformed"/>
       </Events>

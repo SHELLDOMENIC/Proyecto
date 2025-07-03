@@ -16,6 +16,6 @@ public class NodoMeta {
 
     @Override
     public String toString() {
-        return "NodoMeta{dato=" + dato + "}";
+        return "\n - NodoMeta: \n" + dato ;
     }
 }

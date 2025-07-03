@@ -164,17 +164,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIngresaDescripcion">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ejem,Trabajo Biblioteca"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIngresaDescripcionActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIngresaFecha">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ejem, martes"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIngresaFechaActionPerformed"/>
       </Events>

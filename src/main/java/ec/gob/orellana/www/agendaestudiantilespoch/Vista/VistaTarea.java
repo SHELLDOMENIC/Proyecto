@@ -66,14 +66,12 @@ public class VistaTarea extends javax.swing.JFrame {
 
         jLabel4.setText("Completado");
 
-        txtIngresaDescripcion.setText("ejem,Trabajo Biblioteca");
         txtIngresaDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresaDescripcionActionPerformed(evt);
             }
         });
 
-        txtIngresaFecha.setText("ejem, martes");
         txtIngresaFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresaFechaActionPerformed(evt);
@@ -208,13 +206,13 @@ public class VistaTarea extends javax.swing.JFrame {
     private void btnGuardarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTareaActionPerformed
     
     controladorAgenda.porcesoControlador("tarea");
-    
+    JOptionPane.showMessageDialog(null, "Guardado con Exito!");
    
     }//GEN-LAST:event_btnGuardarTareaActionPerformed
 
     private void btnSalirTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirTareaActionPerformed
         //new PrincipalView(controlador).setVisible(true);
-       // this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnSalirTareaActionPerformed
 
     private void txtIngresaFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresaFechaActionPerformed

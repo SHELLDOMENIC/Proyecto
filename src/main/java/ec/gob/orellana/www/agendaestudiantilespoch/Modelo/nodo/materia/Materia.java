@@ -57,7 +57,7 @@ public class Materia {
 
     @Override
     public String toString() {
-        return nombre + " | Docente: " + docente + " | Horario: " + horario + " | Aula: " + aula;
+        return "| Materia\n" +nombre + " \n| Docente:\n " + docente + " \n| Horario: \n" + horario + "\n | Aula: \n" + aula +"\n";
     }
 }
 
