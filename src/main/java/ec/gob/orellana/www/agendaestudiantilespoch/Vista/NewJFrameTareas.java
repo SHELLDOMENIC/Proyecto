@@ -1,23 +1,28 @@
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
+package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
 
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Tarea;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.AgendaController;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author and_j
  */
-public class NewJframe extends javax.swing.JFrame {
+public class NewJFrameTareas extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJframe
+     * Creates new form NewJFrameTareas
      */
-     private AgendaController controlador;
-    public NewJframe(AgendaController controlador) {
-        this.controlador =controlador;
+     private ControladorInterfaces controladorInterfaces;
+     
+    public NewJFrameTareas() {
         initComponents();
+        this.controladorInterfaces = new ControladorInterfaces();
+        //centrar la ventana
+        this.setLocationRelativeTo(null);
         
+      
+
     }
 
     /**
@@ -134,21 +139,19 @@ public class NewJframe extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtIngresaFecha)
-                                    .addComponent(txtHoraTareas, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                    .addComponent(txtIngresaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnCompetadoSiTareas)
                                 .addGap(34, 34, 34)
                                 .addComponent(btnCompetadoNoTareas)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnGuardarTarea)
-                                    .addComponent(btnLimpiarTarea)
-                                    .addComponent(btnSalirTarea))
-                                .addGap(22, 22, 22))))))
+                                    .addComponent(btnLimpiarTarea, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnGuardarTarea, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnSalirTarea, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtIngresaFecha, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtIngresaDescripcion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                .addComponent(txtHoraTareas)))
+                        .addContainerGap(24, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,13 +180,13 @@ public class NewJframe extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                                 .addComponent(btnLimpiarTarea)
-                                .addGap(5, 5, 5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnGuardarTarea)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSalirTarea)
-                                .addGap(29, 29, 29))
+                                .addGap(35, 35, 35))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,44 +207,15 @@ public class NewJframe extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIngresaDescripcionActionPerformed
 
     private void btnGuardarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTareaActionPerformed
-      //Obtener los datos de los campos de texto
-    String descripcion = txtIngresaDescripcion.getText();
-    String fecha = txtIngresaFecha.getText();
-    String hora = txtHoraTareas.getText();
+    
+    controladorInterfaces.procesoNavegar("tarea");
+    
    
-    //boolean completado = btnCompetadoNoTareas.getText();
-   // boolean completado= btnCompetadoSiTareas.getText();
-    
-    //Validar que los campos no estén vacíos
-    if(descripcion.isEmpty() || fecha.isEmpty() || hora.isEmpty()) {
-        JOptionPane.showMessageDialog(this, 
-            "Por favor complete todos los campos", 
-            "Error", 
-            JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    // 3. Crear la nueva tarea
-    Tarea nuevaTarea = new Tarea(
-        descripcion,
-        fecha + " " + hora,  // Combinar fecha y hora
-        false                // Por defecto no completada
-    );
-    
-    // Guardar en el controlador
-    controlador.agregarTarea(nuevaTarea);
-    
-    //  Mostrar confirmación
-    JOptionPane.showMessageDialog(this, 
-        "Tarea guardada exitosamente!", 
-        "Éxito", 
-        JOptionPane.INFORMATION_MESSAGE);
-    
     }//GEN-LAST:event_btnGuardarTareaActionPerformed
 
     private void btnSalirTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirTareaActionPerformed
-        new PrincipalView(controlador).setVisible(true);
-        this.dispose();
+        //new PrincipalView(controlador).setVisible(true);
+       // this.dispose();
     }//GEN-LAST:event_btnSalirTareaActionPerformed
 
     private void txtIngresaFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresaFechaActionPerformed
@@ -282,6 +256,28 @@ public class NewJframe extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLimpiarTareaActionPerformed
 
+     public String getDescripcionTaeas() {
+        return IngresaTarea.getText();
+    }
+      public String getFecha() {
+        return txtIngresaFecha.getText();
+    }
+       public String getHora() {
+        return txtHoraTareas.getText();
+    }
+       public boolean getEstadoTareas() {
+
+        boolean metaSi = btnCompetadoSiTareas.isSelected();
+        boolean metaNo = btnCompetadoNoTareas.isSelected();
+        boolean estado;
+        if (metaSi) {
+            estado = true;
+
+        } else {
+            estado = false;
+        }
+        return estado;
+    }
     /**
      * @param args the command line arguments
      */

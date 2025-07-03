@@ -1,8 +1,5 @@
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
-
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Meta;
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Tarea;
+package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,13 +11,14 @@ public class NewJFrameMetas extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrameMetas
      */
-    private AgendaController controlador;
+    private ControladorInterfaces controladorInterfaces;
 
-    public NewJFrameMetas(AgendaController controlador) {
-        this.controlador = controlador;
+    public NewJFrameMetas() {
         initComponents();
+        this.controladorInterfaces = new ControladorInterfaces();
+        //centrar la ventana
+        this.setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,32 +107,29 @@ public class NewJFrameMetas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalirMetas)
-                    .addComponent(btnGuardarMetas)
-                    .addComponent(btnLimpiarMetas))
-                .addGap(40, 40, 40))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2))
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(radiobtnSiMeta)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(radiobtnNoMeta))
-                                    .addComponent(txtDescripcionMeta, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                    .addComponent(txtFechaMeta)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnLimpiarMetas)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel2))
+                                    .addGap(35, 35, 35)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(radiobtnSiMeta)
+                                            .addGap(26, 26, 26)
+                                            .addComponent(radiobtnNoMeta))
+                                        .addComponent(txtDescripcionMeta, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                        .addComponent(txtFechaMeta)))
+                                .addComponent(btnGuardarMetas)
+                                .addComponent(btnSalirMetas))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(jLabel1)))
@@ -186,49 +181,61 @@ public class NewJFrameMetas extends javax.swing.JFrame {
 
     private void btnSalirMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMetasActionPerformed
 
-        new PrincipalView(controlador).setVisible(true);
+        //new PrincipalView(controlador).setVisible(true);
 
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btnSalirMetasActionPerformed
 
     private void btnLimpiarMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarMetasActionPerformed
+       if (txtDescripcionMeta.getText().length() > 0) { 
         txtDescripcionMeta.setText("");
-        txtFechaMeta.setText("");
-        radiobtnNoMeta.setText("");
-        radiobtnSiMeta.setText("");
+         } else {
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+       }
+        if (txtFechaMeta.getText().length() > 0) {
+            txtFechaMeta.setText("");
+            JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (radiobtnNoMeta.getText().length() > 0) {
+            radiobtnNoMeta.setText("");
+          JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+        if (radiobtnNoMeta.getText().length() > 0) {
+          radiobtnSiMeta.setText("");
+          JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
+        }
+//fumcion tipo boolean
+        // public boolean esVerdadero(boolean true) 
+        //return True;
+
     }//GEN-LAST:event_btnLimpiarMetasActionPerformed
 
     private void btnGuardarMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMetasActionPerformed
-        String descripcion = txtDescripcionMeta.getText();
-        String fecha = txtFechaMeta.getText();
-        // boolean pendiente = radiobtnNoMeta.getText();
-        // boolean completado= radiobtnSiMeta.getText();
+      
+        controladorInterfaces.procesoNavegar("meta");
 
-        if (descripcion.isEmpty() || fecha.isEmpty() /*|| boolean.isEmpty()*/) {
-            JOptionPane.showMessageDialog(this,
-                    "Por favor complete todos los campos",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        //  Crear la nueva meta
-        Meta nuevaMeta = new Meta(
-                descripcion,
-                fecha + " ", // Combinar fecha y hora
-                false // Por defecto no completada
-        );
-
-        // Guardar en el controlador
-        controlador.agregarMeta(nuevaMeta);
-
-        //  Mostrar confirmación
-        JOptionPane.showMessageDialog(this,
-                "Meta guardada exitosamente!",
-                "Éxito",
-                JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnGuardarMetasActionPerformed
+    public String getDescripcionMetas() {
+        return txtDescripcionMeta.getText();
+    }
 
+    public String getFecha() {
+        return txtFechaMeta.getText();
+    }
+
+    public boolean getEstadoMetas() {
+
+        boolean metaSi = radiobtnSiMeta.isSelected();
+        boolean metaNo = radiobtnNoMeta.isSelected();
+        boolean estado;
+        if (metaSi) {
+            estado = true;
+
+        } else {
+            estado = false;
+        }
+        return estado;
+    }
     /**
      * @param args the command line arguments
      */

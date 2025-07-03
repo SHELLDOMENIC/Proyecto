@@ -1,8 +1,5 @@
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
-
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Materia;
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Meta;
+package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,11 +11,14 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrameMaterias
      */
-    private AgendaController controlador;
+    private  ControladorInterfaces controladorInterfaces;
 
-    public NewJFrameMaterias(AgendaController controlador) {
-        this.controlador = controlador;
+    public NewJFrameMaterias() {
         initComponents();
+        this.controladorInterfaces = new ControladorInterfaces();
+        //centrar la ventana
+        this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -38,7 +38,7 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtNombreDelDocente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        TxThora = new javax.swing.JTextField();
+        TxTAula = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtDiaHorario = new javax.swing.JTextField();
@@ -69,12 +69,12 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Horas:");
+        jLabel5.setText("Aula:");
 
-        TxThora.setText("ejem,tres a cinco");
-        TxThora.addActionListener(new java.awt.event.ActionListener() {
+        TxTAula.setText("ejem,Aula3");
+        TxTAula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxThoraActionPerformed(evt);
+                TxTAulaActionPerformed(evt);
             }
         });
 
@@ -83,7 +83,7 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel7.setText("Horario");
 
-        txtDiaHorario.setText("ejem,Lunes");
+        txtDiaHorario.setText("ejem,Lunes 3 a 5");
         txtDiaHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDiaHorarioActionPerformed(evt);
@@ -139,18 +139,16 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
                                     .addComponent(jLabel6))
                                 .addGap(45, 45, 45)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(TxThora)
-                                            .addComponent(txtDiaHorario)
-                                            .addComponent(txtNombreDelDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(txtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnLimpiarmateria, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(TxTAula)
+                                        .addComponent(txtDiaHorario)
+                                        .addComponent(txtNombreDelDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(149, 149, 149)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnSalirMateria)
-                                            .addComponent(btnGuardarMateria)))))
+                                        .addComponent(btnSalirMateria))
+                                    .addComponent(btnLimpiarmateria, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnGuardarMateria, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addComponent(jLabel7))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -178,14 +176,14 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(TxThora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(TxTAula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLimpiarmateria)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGuardarMateria)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalirMateria)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,17 +193,17 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreDelDocenteActionPerformed
 
-    private void TxThoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxThoraActionPerformed
+    private void TxTAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxTAulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxThoraActionPerformed
+    }//GEN-LAST:event_TxTAulaActionPerformed
 
     private void txtDiaHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaHorarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDiaHorarioActionPerformed
 
     private void btnLimpiarmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarmateriaActionPerformed
-        if (TxThora.getText().length() > 0) {
-            TxThora.setText("");
+        if (TxTAula.getText().length() > 0) {
+            TxTAula.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
@@ -228,50 +226,37 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
 
     private void btnSalirMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMateriaActionPerformed
 
-        new PrincipalView(controlador).setVisible(true);
+       // new PrincipalView(controlador).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirMateriaActionPerformed
 
     private void btnGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMateriaActionPerformed
-        String nombreMateria = txtNombreMateria.getText();
-        String docente = txtNombreDelDocente.getText();
-        String dia = txtDiaHorario.getText();
-        String hora=TxThora.getText();
-        
-         if (nombreMateria.isEmpty() || docente.isEmpty() || dia.isEmpty()|| hora.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Por favor complete todos los campos",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
 
-        //  Crear la nueva meta
-        Materia nuevaMateria = new Materia(
-                nombreMateria,
-                docente , 
-                dia,
-                hora
-                
-        );
+       controladorInterfaces.procesoNavegar("materia");
 
-        // Guardar en el controlador
-        controlador.agregarMateria(nuevaMateria);
-
-        //  Mostrar confirmación
-        JOptionPane.showMessageDialog(this,
-                "Materia guardada exitosamente!",
-                "Éxito",
-                JOptionPane.INFORMATION_MESSAGE);
-                                  
     }//GEN-LAST:event_btnGuardarMateriaActionPerformed
+    public String getMateria() {
+        return txtNombreMateria.getText();
+    }
+
+    public String getDocente() {
+        return txtNombreDelDocente.getText();
+    }
+
+    public String getDia() {
+        return txtDiaHorario.getText();
+    }
+
+    public String getAula() {
+        return TxTAula.getText();
+    }
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TxThora;
+    private javax.swing.JTextField TxTAula;
     private javax.swing.JButton btnGuardarMateria;
     private javax.swing.JButton btnLimpiarmateria;
     private javax.swing.JButton btnSalirMateria;

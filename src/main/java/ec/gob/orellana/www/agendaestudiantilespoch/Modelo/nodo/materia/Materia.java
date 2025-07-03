@@ -1,5 +1,5 @@
 
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo;
+package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.nodo.materia;
 
 /**
  *

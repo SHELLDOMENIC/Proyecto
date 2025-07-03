@@ -1,8 +1,5 @@
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
-
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.AgendaEstudiantilEspochClassPrincipal;
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
-import javax.swing.JOptionPane;
+package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 
 /**
  *
@@ -10,10 +7,15 @@ import javax.swing.JOptionPane;
  */
 public class PrincipalView extends javax.swing.JFrame {
 
-    private AgendaController controlador;
-    public PrincipalView(AgendaController controlador) {
+    private ControladorInterfaces controladorInterfaces;
+
+    public PrincipalView() {
         initComponents();
-        this.controlador = controlador;
+
+        this.controladorInterfaces = new ControladorInterfaces();
+        //centrar la ventana
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -92,23 +94,23 @@ public class PrincipalView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(btnTareas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(btnMaterias)
-                .addGap(28, 28, 28)
-                .addComponent(btnExamen)
-                .addGap(38, 38, 38))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(btnMetas)
-                .addGap(34, 34, 34)
-                .addComponent(btnResgistrado)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(110, 110, 110))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(btnTareas)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnMaterias)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnExamen))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(btnMetas)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnResgistrado))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel1)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,42 +122,45 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addComponent(btnMaterias)
                     .addComponent(btnTareas)
                     .addComponent(btnExamen))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMetas)
                     .addComponent(btnResgistrado))
-                .addGap(34, 34, 34))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTareasActionPerformed
-       new NewJframe (controlador).setVisible(true);
-        this.dispose();
+        //new NewJframe(controlador).setVisible(true);
+        controladorInterfaces.procesoNavegar("tarea");
 
     }//GEN-LAST:event_btnTareasActionPerformed
 
     private void btnMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMateriasActionPerformed
+        controladorInterfaces.procesoNavegar("materia");
         //conecta la interfaz con boton 
-        new NewJFrameMaterias(controlador).setVisible(true);
+        // new NewJFrameMaterias(controlador).setVisible(true);
         //sirve para que no se abra todas las pestañas y solo se mantenga una
-        this.dispose();
+        // this.dispose();
     }//GEN-LAST:event_btnMateriasActionPerformed
 
     private void btnMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetasActionPerformed
-        new NewJFrameMetas(controlador).setVisible(true);
-        this.dispose();
+        controladorInterfaces.procesoNavegar("meta");
+        //new NewJFrameMetas(controlador).setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_btnMetasActionPerformed
 
     private void btnExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamenActionPerformed
-        new NewJFrameExamen(controlador).setVisible(true);
-        this.dispose();
+        controladorInterfaces.procesoNavegar("examen");
+        //new NewJFrameExamen(controlador).setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_btnExamenActionPerformed
 
     private void btnResgistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResgistradoActionPerformed
-        new NewJFramefinal(controlador).setVisible(true);
-        this.dispose();
+        //new NewJFramefinal(controlador).setVisible(true);
+       // this.dispose();
     }//GEN-LAST:event_btnResgistradoActionPerformed
 
     /**

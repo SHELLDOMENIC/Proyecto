@@ -48,26 +48,23 @@
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtIngresaFecha" max="32767" attributes="0"/>
-                                  <Component id="txtHoraTareas" alignment="0" pref="300" max="32767" attributes="0"/>
-                                  <Component id="txtIngresaDescripcion" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <Component id="btnCompetadoSiTareas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="btnCompetadoNoTareas" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="71" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnGuardarTarea" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnLimpiarTarea" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnSalirTarea" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLimpiarTarea" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnGuardarTarea" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSalirTarea" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtIngresaFecha" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtIngresaDescripcion" alignment="0" pref="248" max="32767" attributes="0"/>
+                              <Component id="txtHoraTareas" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -103,13 +100,13 @@
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
+                              <EmptySpace pref="38" max="32767" attributes="0"/>
                               <Component id="btnLimpiarTarea" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnGuardarTarea" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSalirTarea" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>

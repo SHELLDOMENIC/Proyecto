@@ -1,7 +1,5 @@
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Vista;
-
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Controlador.AgendaController;
-import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Examen;
+package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,10 +11,15 @@ public class NewJFrameExamen extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrameExamen
      */
-    private AgendaController controlador;
-    public NewJFrameExamen(AgendaController controlador) {
-        this.controlador = controlador;
+    private ControladorInterfaces controladorInterfaces;
+
+    public NewJFrameExamen() {
+        this.controladorInterfaces = new ControladorInterfaces();
+        //centrar la ventana
+        this.setLocationRelativeTo(null);
         initComponents();
+        
+   
     }
 
     /**
@@ -64,9 +67,14 @@ public class NewJFrameExamen extends javax.swing.JFrame {
 
         txtMateriaExamen.setText("ejem,Algebra");
 
-        txtDiaExamen.setText("ejem,Jueves");
+        txtDiaExamen.setText("ejem,division de fracciones");
 
-        txtTemaExamen.setText("ejem,suma de fracciones");
+        txtTemaExamen.setText("ejem.Jueves ");
+        txtTemaExamen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTemaExamenActionPerformed(evt);
+            }
+        });
 
         txtHoraExamen.setText("ejem,tres de la tarde");
 
@@ -95,33 +103,37 @@ public class NewJFrameExamen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addComponent(Fecha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtMateriaExamen)
-                    .addComponent(txtDiaExamen)
-                    .addComponent(txtTemaExamen, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                    .addComponent(txtHoraExamen))
-                .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(134, 134, 134))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalir)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnLimpiar))
-                .addGap(31, 31, 31))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpiar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(Fecha))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtMateriaExamen)
+                                .addComponent(txtDiaExamen)
+                                .addComponent(txtHoraExamen, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
+                            .addComponent(txtTemaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSalir)
+                            .addComponent(btnGuardar))))
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,68 +147,38 @@ public class NewJFrameExamen extends javax.swing.JFrame {
                     .addComponent(txtMateriaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Fecha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtHoraExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtTemaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDiaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDiaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Fecha)
+                    .addComponent(txtTemaExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtHoraExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLimpiar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalir)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String nombreMateria = txtMateriaExamen.getText();
-        String Tema = txtTemaExamen.getText();
-        String dia = txtDiaExamen.getText();
-        String hora=txtHoraExamen.getText();
-        if (nombreMateria.isEmpty() || Tema.isEmpty() || dia.isEmpty()|| hora.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Por favor complete todos los campos",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+       controladorInterfaces.procesoNavegar("examen");
 
-        //  Crear la nueva meta
-        Examen nuevoExamen = new Examen(
-                nombreMateria,
-                Tema , 
-                dia,
-                hora
-                
-        );
-
-        // Guardar en el controlador
-        controlador.agregarExamen(nuevoExamen);
-
-        //  Mostrar confirmación
-        JOptionPane.showMessageDialog(this,
-                "Examen guardada exitosamente!",
-                "Mucha suerte!",
-                JOptionPane.INFORMATION_MESSAGE);
-                                  
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-       new PrincipalView(controlador).setVisible(true);
+        //new PrincipalView(controlador).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -208,22 +190,41 @@ public class NewJFrameExamen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
         if (txtHoraExamen.getText().length() > 0) {
-        txtHoraExamen.setText("");
-         } else {
+            txtHoraExamen.setText("");
+        } else {
             JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
         if (txtMateriaExamen.getText().length() > 0) {
-        txtMateriaExamen.setText("");
+            txtMateriaExamen.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
         if (txtTemaExamen.getText().length() > 0) {
-        txtTemaExamen.setText("");
+            txtTemaExamen.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "No se puede limpiar,llene los campos");
         }
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void txtTemaExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTemaExamenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTemaExamenActionPerformed
+
+   public String getMateria() {
+        return txtMateriaExamen.getText();
+    }
+
+    public String getTema() {
+        return txtTemaExamen.getText();
+    }
+
+    public String getDia() {
+        return txtDiaExamen.getText();
+    }
+
+    public String getHora() {
+        return txtHoraExamen.getText();
+    } 
     /**
      * @param args the command line arguments
      */

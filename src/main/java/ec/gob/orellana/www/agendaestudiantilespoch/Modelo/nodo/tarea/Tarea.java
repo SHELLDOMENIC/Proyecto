@@ -1,4 +1,4 @@
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo;
+package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.nodo.tarea;
 
 /**
  *
@@ -8,13 +8,13 @@ public class Tarea {
 
     private String descripcion;
     private String Dia;
-    //private String Hora;
+    private String Hora;
     private boolean completado = false;
 
-    public Tarea(String descripcion, String Dia,boolean completado) {
+    public Tarea(String descripcion, String Dia,String hora,boolean completado) {
         this.descripcion = descripcion;
         this.Dia = Dia;
-        //this.Hora = Hora;
+        this.Hora = Hora;
         this.completado = false;
     }
     
@@ -39,13 +39,13 @@ public class Tarea {
         this.Dia = Dia;
     }
 
-   /* public String getHora() {
+    public String getHora() {
         return Hora;
     }
 
     public void setHora(String Hora) {
         this.Hora = Hora;
-    }*/
+    }
 
     public boolean isCompletado() {
         return completado;

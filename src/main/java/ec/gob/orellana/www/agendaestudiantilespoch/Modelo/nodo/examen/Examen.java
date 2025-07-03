@@ -1,5 +1,5 @@
 
-package ec.gob.orellana.www.agendaestudiantilespoch.Modelo;
+package ec.gob.orellana.www.agendaestudiantilespoch.Modelo.nodo.examen;
 
 /**
  *
@@ -11,6 +11,7 @@ public class Examen {
         private String fecha;
         private String tema;
         private String hora;
+        
           public Examen(String materia, String fecha, String tema,String hora) {
             this.materia = materia;
             this.fecha = fecha;
@@ -47,15 +48,16 @@ public class Examen {
     }
 
       
-        public void editar(String materia, String fecha, String tema) {
+        public void editar(String materia, String fecha, String tema, String hora) {
         this.materia = materia;
         this.fecha = fecha;
         this.tema = tema;
+        this.hora =hora;
         }
 
         @Override
     public String toString() {
-        return "Materia: " + materia + " | Fecha: " + fecha + " | Tema: " + tema;
+        return "Materia: " + materia + " | Fecha: " + fecha + " | Tema: " + tema+" | Hora " +hora;
     }
 }
 
