@@ -19,7 +19,7 @@ public class NodoExamen {
 
     @Override
     public String toString() {
-        return "NodoExamen{dato=" + dato + "}";
+        return "NodoExamen:\n " + dato + "\n";
     }
 
 }

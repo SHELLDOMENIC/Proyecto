@@ -1,4 +1,5 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
@@ -6,16 +7,17 @@ import javax.swing.JOptionPane;
  *
  * @author and_j
  */
-public class NewJFrameMetas extends javax.swing.JFrame {
+public class VistaMeta extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrameMetas
+     * Creates new form VistaMeta
      */
-    private ControladorInterfaces controladorInterfaces;
+    private ControladorAgenda controladorAgenda;
+    
 
-    public NewJFrameMetas() {
+    public VistaMeta() {
         initComponents();
-        this.controladorInterfaces = new ControladorInterfaces();
+        this.controladorAgenda= new ControladorAgenda(this);
         //centrar la ventana
         this.setLocationRelativeTo(null);
     }
@@ -161,7 +163,7 @@ public class NewJFrameMetas extends javax.swing.JFrame {
                 .addComponent(btnGuardarMetas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalirMetas)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -212,7 +214,7 @@ public class NewJFrameMetas extends javax.swing.JFrame {
 
     private void btnGuardarMetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMetasActionPerformed
       
-        controladorInterfaces.procesoNavegar("meta");
+        controladorAgenda.porcesoControlador("meta");
 
     }//GEN-LAST:event_btnGuardarMetasActionPerformed
     public String getDescripcionMetas() {

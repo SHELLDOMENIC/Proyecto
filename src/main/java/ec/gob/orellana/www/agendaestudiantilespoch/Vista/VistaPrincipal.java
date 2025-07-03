@@ -1,4 +1,6 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Cola;
 
@@ -6,18 +8,18 @@ import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Cola;
  *
  * @author and_j
  */
-public class PrincipalView extends javax.swing.JFrame {
+public class VistaPrincipal extends javax.swing.JFrame {
 
     private ControladorInterfaces controladorInterfaces;
+    
 
-    public PrincipalView() {
+    public VistaPrincipal() {
         initComponents();
 
         this.controladorInterfaces = new ControladorInterfaces();
-        
+
         //centrar la ventana
         this.setLocationRelativeTo(null);
-         this.controladorInterfaces.setCola(Cola.getInstancia()); 
     }
 
     /**
@@ -162,7 +164,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void btnResgistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResgistradoActionPerformed
         //new NewJFramefinal(controlador).setVisible(true);
-       // this.dispose();
+        // this.dispose();
+        controladorInterfaces.procesoNavegar("resultado");
     }//GEN-LAST:event_btnResgistradoActionPerformed
 
     /**

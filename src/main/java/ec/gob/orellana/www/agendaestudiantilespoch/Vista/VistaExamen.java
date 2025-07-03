@@ -1,20 +1,20 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
-import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author and_j
  */
-public class NewJFrameExamen extends javax.swing.JFrame {
+public class VistaExamen extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrameExamen
+     * Creates new form VistaExamen
      */
-    private ControladorInterfaces controladorInterfaces;
+    private ControladorAgenda controladorAgenda;
 
-    public NewJFrameExamen() {
-        this.controladorInterfaces = new ControladorInterfaces();
+    public VistaExamen() {
+        this.controladorAgenda = new ControladorAgenda(this);
         //centrar la ventana
         this.setLocationRelativeTo(null);
         initComponents();
@@ -173,7 +173,7 @@ public class NewJFrameExamen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       controladorInterfaces.procesoNavegar("examen");
+       controladorAgenda.porcesoControlador("examen");
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 

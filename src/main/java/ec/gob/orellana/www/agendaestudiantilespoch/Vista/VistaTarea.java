@@ -1,4 +1,5 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
@@ -6,16 +7,16 @@ import javax.swing.JOptionPane;
  *
  * @author and_j
  */
-public class NewJFrameTareas extends javax.swing.JFrame {
+public class VistaTarea extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrameTareas
+     * Creates new form VistaTarea
      */
-     private ControladorInterfaces controladorInterfaces;
+     private ControladorAgenda controladorAgenda;
      
-    public NewJFrameTareas() {
+    public VistaTarea() {
         initComponents();
-        this.controladorInterfaces = new ControladorInterfaces();
+        this.controladorAgenda= new ControladorAgenda(this);
         //centrar la ventana
         this.setLocationRelativeTo(null);
         
@@ -206,7 +207,7 @@ public class NewJFrameTareas extends javax.swing.JFrame {
 
     private void btnGuardarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTareaActionPerformed
     
-    controladorInterfaces.procesoNavegar("tarea");
+    controladorAgenda.porcesoControlador("tarea");
     
    
     }//GEN-LAST:event_btnGuardarTareaActionPerformed

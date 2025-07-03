@@ -10,89 +10,56 @@ import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.nodo.materia.NodoMater
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.nodo.meta.NodoMeta;
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.nodo.tarea.NodoTarea;
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.nodo.tarea.Tarea;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameExamen;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameMaterias;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameMetas;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameTareas;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaExamen;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaReporte;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaMateria;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaMeta;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaTarea;
+import javax.swing.JTextArea;
 
 /**
  *
  * @author and_j
  */
-public class AgendaController {
+public class ControladorAgenda {
 
     private AgendaEstudiantilEspochClassPrincipal modelo;
-    private NewJFrameMetas vistaMetas;
-    private NewJFrameMaterias vistaMaterias;
-    private NewJFrameExamen vistaExamen;
-    private NewJFrameTareas vistaTarea;
-    private Cola cola;
+    private VistaMeta vistaMetas;
+    private VistaMateria vistaMateria;
+    private VistaExamen vistaExamen;
+    private VistaTarea vistaTarea;
+    private VistaReporte vistaReporte;
+    private static Cola cola = new Cola();
+    //private Cola cola;
 
-// Único constructor
-    public AgendaController(Cola cola) {
-        this.cola = cola;
-    }
-
-    // Métodos para asignar vistas
-    public void setVistaMetas(NewJFrameMetas vista) {
-        this.vistaMetas = vista;
-    }
-
-    public void setVistaMaterias(NewJFrameMaterias vista) {
-        this.vistaMaterias = vista;
-    }
-
-    public void setVistaExamen(NewJFrameExamen vista) {
-        this.vistaExamen = vista;
-    }
-
-    public void setVistaTareas(NewJFrameTareas vista) {
-        this.vistaTarea = vista;
-    }
-
-    // Método unificado para procesar elementos
-    public void procesarElemento(String tipo, Object datos) {
-        switch (tipo) {
-            case "meta":
-                // Lógica para metas
-                break;
-            case "materia":
-                // Lógica para materias
-                break;
-            case "examen":
-                // Lógica para exámenes
-                break;
-            case "tarea":
-                // Lógica para tareas
-                break;
-        }
-        cola.mostrarCola(); // Opcional: para depuración
-    }
-
-/* public AgendaController(NewJFrameMetas vistaMetas) {
-
+    public ControladorAgenda(VistaMeta vistaMetas) {
         this.vistaMetas = vistaMetas;
-        this.cola = new Cola();
+
     }
 
-    public AgendaController(NewJFrameTareas vistaTarea) {
+    public ControladorAgenda(VistaTarea vistaTarea) {
         this.vistaTarea = vistaTarea;
-        this.cola = new Cola();
+
     }
 
-    public AgendaController(NewJFrameMaterias vistaMaterias) {
-        this.vistaMaterias = vistaMaterias;
-        this.cola = new Cola();
-    }
-
-    public AgendaController(NewJFrameExamen vistaExamen) {
+    public ControladorAgenda(VistaExamen vistaExamen) {
         this.vistaExamen = vistaExamen;
-        this.cola = new Cola();
-    }*/
+
+    }
+
+    public ControladorAgenda(VistaMateria vistaMateria) {
+        this.vistaMateria = vistaMateria;
+
+    }
+    public ControladorAgenda(VistaReporte vistaReporte) {
+        this.vistaReporte = vistaReporte;
+
+    }
 
 //NEW COINTROLLER
-public void porcesoControlador(String tipo) {
+    public void porcesoControlador(String tipo) {
         //obtengo desde vista
+        String resultado;
         if ("meta".equals(tipo)) {
 
             String descripcion = vistaMetas.getDescripcionMetas();
@@ -121,15 +88,26 @@ public void porcesoControlador(String tipo) {
 
         } else if ("materia".equals(tipo)) {
 
-            String nombreMateria = vistaMaterias.getMateria();
-            String docente = vistaMaterias.getDocente();
-            String dia = vistaMaterias.getDia();
-            String aula = vistaMaterias.getAula();
+            String nombreMateria = vistaMateria.getMateria();
+            String docente = vistaMateria.getDocente();
+            String dia = vistaMateria.getDia();
+            String aula = vistaMateria.getAula();
             Materia materia = new Materia(nombreMateria, docente, dia, aula);//revisar 
             cola.agregar(new NodoMaterias(materia));
-        }
+        } else if ("resultado".equals(tipo)) {
 
-        cola.mostrarCola();
+            // System.out.println("Pedro:"+cola.mostrarCola());
+            //String resultado;
+            /*if (cola.estaVacia() == true) {
+                resultado = "No hay elementos";
+            } else {*/
+            //}
+            resultado = cola.mostrarCola();
+
+            vistaReporte.mostrarResultados(resultado);
+        }
+        //System.out.println("Pedro:" + cola.mostrarCola());
+
     }
 
 }

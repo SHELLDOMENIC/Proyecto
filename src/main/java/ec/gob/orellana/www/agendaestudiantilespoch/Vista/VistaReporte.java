@@ -1,22 +1,26 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 
 /**
  *
  * @author and_j
  */
-public class NewJFramefinal extends javax.swing.JFrame {
+public class VistaReporte extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFramefinal
+     * Creates new form VistaReporte
      */
-    private ControladorInterfaces controladorInterfaces;
+    private ControladorAgenda controladorAgenda;
 
-    public NewJFramefinal() {
+    public VistaReporte() {
         initComponents();
-        this.controladorInterfaces = new ControladorInterfaces();
+        this.controladorAgenda=new ControladorAgenda(this);
+        this.controladorAgenda.porcesoControlador("resultado");
         //centrar la ventana
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -124,18 +128,22 @@ public class NewJFramefinal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-       // new PrincipalView(controlador).setVisible(true);
+        // new PrincipalView(controlador).setVisible(true);
 
         //this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnMostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostarActionPerformed
-      
-    controladorInterfaces.mostrarResumen(txtResultado);
+       // controladorAgenda.mostrarResumen();
+        //controladorInterfaces.mostrarResumen(txtResultado);
 
         // String resumen = controlador.getResumen();
-       // txtResultado.setText(resumen);
+        // txtResultado.setText(resumen);
     }//GEN-LAST:event_btnMostarActionPerformed
+    public void mostrarResultados(String resultado) {
+       
+        txtResultado.setText(resultado);
+    }
 
     /**
      * @param args the command line arguments

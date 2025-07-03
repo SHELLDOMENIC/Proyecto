@@ -1,4 +1,5 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
+import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorAgenda;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
@@ -6,16 +7,16 @@ import javax.swing.JOptionPane;
  *
  * @author and_j
  */
-public class NewJFrameMaterias extends javax.swing.JFrame {
+public class VistaMateria extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrameMaterias
+     * Creates new form VistaMateria
      */
-    private  ControladorInterfaces controladorInterfaces;
+    private ControladorAgenda controladorAgenda;
 
-    public NewJFrameMaterias() {
+    public VistaMateria() {
         initComponents();
-        this.controladorInterfaces = new ControladorInterfaces();
+        this.controladorAgenda= new ControladorAgenda(this);
         //centrar la ventana
         this.setLocationRelativeTo(null);
         
@@ -232,7 +233,7 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
 
     private void btnGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMateriaActionPerformed
 
-       controladorInterfaces.procesoNavegar("materia");
+       controladorAgenda.porcesoControlador("materia");
 
     }//GEN-LAST:event_btnGuardarMateriaActionPerformed
     public String getMateria() {

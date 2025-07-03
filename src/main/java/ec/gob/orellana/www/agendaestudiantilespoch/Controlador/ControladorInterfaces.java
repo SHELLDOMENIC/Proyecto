@@ -1,10 +1,11 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Controlador;
 
 import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Cola;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameExamen;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameMaterias;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameMetas;
-import ec.gob.orellana.www.agendaestudiantilespoch.Vista.NewJFrameTareas;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaExamen;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaReporte;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaMateria;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaMeta;
+import ec.gob.orellana.www.agendaestudiantilespoch.Vista.VistaTarea;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
@@ -14,55 +15,38 @@ import javax.swing.JTextArea;
  */
 public class ControladorInterfaces {
 
-    private Cola cola;
-
-    public void setCola(Cola cola) {
-        this.cola = cola;
-    }
-
-    public ControladorInterfaces() {
-    }
-
     public void procesoNavegar(String opcion) {
 
         if ("meta".equals(opcion)) {
 
-            NewJFrameMetas vistaMetas = new NewJFrameMetas();
+            VistaMeta vistaMetas = new VistaMeta();
             vistaMetas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             vistaMetas.setVisible(true);
 
         } else if ("tarea".equals(opcion)) {
 
-            NewJFrameTareas vistaTareas = new NewJFrameTareas();
+            VistaTarea vistaTareas = new VistaTarea();
             vistaTareas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             vistaTareas.setVisible(true);
 
         } else if ("materia".equals(opcion)) {
 
-            NewJFrameMaterias vistaMaterias = new NewJFrameMaterias();
+            VistaMateria vistaMaterias = new VistaMateria();
             vistaMaterias.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             vistaMaterias.setVisible(true);
 
         } else if ("examen".equals(opcion)) {
 
-            NewJFrameExamen vistaExamen = new NewJFrameExamen();
+            VistaExamen vistaExamen = new VistaExamen();
             vistaExamen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             vistaExamen.setVisible(true);
+        }else if ("resultado".equals(opcion)) {
+
+            VistaReporte vistaMostrar = new VistaReporte();
+            vistaMostrar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            vistaMostrar.setVisible(true);
         }
-        cola.mostrarCola();
+        //cola.mostrarCola();
     }
-    public void mostrarResumen(JTextArea txtResumen) {
-    if (cola.estaVacia()) {
-        txtResumen.setText("No hay elementos para mostrar.");
-        return;
-    }
-
-    StringBuilder sb = new StringBuilder("═ RESUMEN AGENDA ═\n\n");
-    cola.obtenerTodos().forEach(elemento -> 
-        sb.append(elemento.toString()).append("\n\n")
-    );
-
-    txtResumen.setText(sb.toString());
-}
-
+   
 }

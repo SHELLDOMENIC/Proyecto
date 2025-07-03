@@ -9,19 +9,17 @@ import java.util.Queue;
  */
 public class Cola {
 
-    private static Cola instancia = new Cola(); // Singleton
-    private Queue<Object> cola = new LinkedList<>();
+    //private static Cola instancia = new Cola(); // Singleton
+    private final Queue<Object> cola = new LinkedList<>();
 
-    public Queue<Object> obtenerTodos() {
+   /* public Queue<Object> obtenerTodos() {
         return new LinkedList<>(cola); // Devuelve una COPIA de la cola original
-    }
+    }*/
 
-    private Cola() {
-    } // Constructor privado
 
-    public static Cola getInstancia() { // Método global para acceder
+  /*  public static Cola getInstancia() { // Método global para acceder
         return instancia;
-    }
+    }*/
 
     public void agregar(Object nodo) {
         cola.offer(nodo);
@@ -35,10 +33,12 @@ public class Cola {
         return cola.isEmpty();
     }
 
-    public void mostrarCola() {
+    public String mostrarCola() {
+        String resultado="-";
         for (Object nodo : cola) {
-            System.out.println(nodo.toString());
+           resultado= resultado + nodo.toString();
         }
+        return resultado;
     }
 
 }
