@@ -28,7 +28,48 @@ public class AgendaController {
     private NewJFrameTareas vistaTarea;
     private Cola cola;
 
-    public AgendaController(NewJFrameMetas vistaMetas) {
+// Único constructor
+    public AgendaController(Cola cola) {
+        this.cola = cola;
+    }
+
+    // Métodos para asignar vistas
+    public void setVistaMetas(NewJFrameMetas vista) {
+        this.vistaMetas = vista;
+    }
+
+    public void setVistaMaterias(NewJFrameMaterias vista) {
+        this.vistaMaterias = vista;
+    }
+
+    public void setVistaExamen(NewJFrameExamen vista) {
+        this.vistaExamen = vista;
+    }
+
+    public void setVistaTareas(NewJFrameTareas vista) {
+        this.vistaTarea = vista;
+    }
+
+    // Método unificado para procesar elementos
+    public void procesarElemento(String tipo, Object datos) {
+        switch (tipo) {
+            case "meta":
+                // Lógica para metas
+                break;
+            case "materia":
+                // Lógica para materias
+                break;
+            case "examen":
+                // Lógica para exámenes
+                break;
+            case "tarea":
+                // Lógica para tareas
+                break;
+        }
+        cola.mostrarCola(); // Opcional: para depuración
+    }
+
+/* public AgendaController(NewJFrameMetas vistaMetas) {
 
         this.vistaMetas = vistaMetas;
         this.cola = new Cola();
@@ -47,10 +88,10 @@ public class AgendaController {
     public AgendaController(NewJFrameExamen vistaExamen) {
         this.vistaExamen = vistaExamen;
         this.cola = new Cola();
-    }
+    }*/
 
-    //NEW COINTROLLER
-    public void porcesoControlador(String tipo) {
+//NEW COINTROLLER
+public void porcesoControlador(String tipo) {
         //obtengo desde vista
         if ("meta".equals(tipo)) {
 
@@ -92,5 +133,3 @@ public class AgendaController {
     }
 
 }
-
-

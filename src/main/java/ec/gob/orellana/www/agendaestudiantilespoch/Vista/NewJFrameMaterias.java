@@ -227,7 +227,7 @@ public class NewJFrameMaterias extends javax.swing.JFrame {
     private void btnSalirMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMateriaActionPerformed
 
        // new PrincipalView(controlador).setVisible(true);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btnSalirMateriaActionPerformed
 
     private void btnGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMateriaActionPerformed

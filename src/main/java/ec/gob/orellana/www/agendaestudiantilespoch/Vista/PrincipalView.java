@@ -1,5 +1,6 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
+import ec.gob.orellana.www.agendaestudiantilespoch.Modelo.Cola;
 
 /**
  *
@@ -13,9 +14,10 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
 
         this.controladorInterfaces = new ControladorInterfaces();
+        
         //centrar la ventana
         this.setLocationRelativeTo(null);
-
+         this.controladorInterfaces.setCola(Cola.getInstancia()); 
     }
 
     /**

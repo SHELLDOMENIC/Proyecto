@@ -1,6 +1,4 @@
 package ec.gob.orellana.www.agendaestudiantilespoch.Vista;
-
-import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.AgendaController;
 import ec.gob.orellana.www.agendaestudiantilespoch.Controlador.ControladorInterfaces;
 import javax.swing.JOptionPane;
 
