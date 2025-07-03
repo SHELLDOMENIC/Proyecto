@@ -224,9 +224,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtHoraTareas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ejem, media noche"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHoraTareasActionPerformed"/>
       </Events>

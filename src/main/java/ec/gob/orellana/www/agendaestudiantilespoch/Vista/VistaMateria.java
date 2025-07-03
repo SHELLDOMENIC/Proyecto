@@ -70,7 +70,6 @@ public class VistaMateria extends javax.swing.JFrame {
 
         jLabel5.setText("Aula:");
 
-        TxTAula.setText("ejem,Aula3");
         TxTAula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxTAulaActionPerformed(evt);

@@ -109,7 +109,6 @@ public class VistaTarea extends javax.swing.JFrame {
 
         jLabel6.setText("Dia:");
 
-        txtHoraTareas.setText("ejem, media noche");
         txtHoraTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHoraTareasActionPerformed(evt);

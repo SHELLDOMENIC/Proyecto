@@ -63,7 +63,6 @@ public class VistaMeta extends javax.swing.JFrame {
             }
         });
 
-        txtFechaMeta.setText("ejem,Martes,Hoy,Mañana");
         txtFechaMeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaMetaActionPerformed(evt);
