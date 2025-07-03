@@ -16,7 +16,7 @@ public class NewJFramefinal extends javax.swing.JFrame {
 
     public NewJFramefinal() {
         initComponents();
-        this.controladorInterfaces = new ControladorInterfaces(this);
+        this.controladorInterfaces = new ControladorInterfaces();
         //centrar la ventana
         this.setLocationRelativeTo(null);
     }
